@@ -43,3 +43,5 @@ for cluster_index = 1:n_clusters
 end
 
 hold off
+
+axis square
