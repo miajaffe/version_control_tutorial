@@ -12,8 +12,11 @@ points_y = rand(n_points, 1);
 
 k = 3; % number of clusters
 
-centroids_x = rand(k, 1);
-centroids_y = rand(k, 1);
+% choose centroids to be actual points
+start_points = randsample(1:n_points, k);
+
+centroids_x = points_x(start_points);
+centroids_y = points_y(start_points);
 
 
 
@@ -26,5 +29,6 @@ plot(points_x, points_y, '.')
 hold on
 
 plot(points_x(convhull_indexes), points_y(convhull_indexes))
+plot(centroids_x, centroids_y, 'r.')
 
 hold off
