@@ -25,6 +25,10 @@ end
 
 convhull_indexes = convhull(points_x, points_y);
 
+cluster_colors = colormap();
+
+cluster_colors = cluster_colors(randsample(1:length(cluster_colors), n_clusters), :);
+
 figure(1)
 clf
 
@@ -34,7 +38,7 @@ for cluster_index = 1:n_clusters
     x = cluster_points_x{cluster_index};
     y = cluster_points_y{cluster_index};
     
-    plot(x, y)
+    plot(x, y, 'color', cluster_colors(cluster_index, :))
 end
 
 
