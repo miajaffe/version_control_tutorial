@@ -33,13 +33,15 @@ for i = 1:max_iter
     
     for point_index = 1:n_points
         [~, centroid_index] = max(distances(:, point_index));
+        
+        centroid_assignment(point_index) = centroid_index;
     end
     
     
     
 end
 
-disp(distances)
+disp(centroid_assignment)
 
 %
 
