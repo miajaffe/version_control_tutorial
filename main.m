@@ -1,7 +1,5 @@
 % Main execution file
 
-% For the moment, all of the code will be in this file
-
 n_points = 100;
 
 % TODO: load data from a file
