@@ -34,9 +34,9 @@ for cluster_index = 1:n_clusters
     
     plot(x, y, '.', 'markersize', 20, 'color', cluster_colors(cluster_index, :))
     
-    convhull_indexes = convhull(x, y);
+    [convhull_x, convhull_y] = convhull_points(x, y);
     
-    plot(x(convhull_indexes), y(convhull_indexes), 'color', cluster_colors(cluster_index, :))
+    plot(convhull_x, convhull_y, 'color', cluster_colors(cluster_index, :))
 end
 
 hold off
