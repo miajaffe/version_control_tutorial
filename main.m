@@ -8,6 +8,17 @@ n_points = 100;
 points_x = rand(n_points, 1);
 points_y = rand(n_points, 1);
 
+% K-means algorithm
+
+k = 3; % number of clusters
+
+centroids_x = rand(k, 1);
+centroids_y = rand(k, 1);
+
+
+
+%
+
 convhull_indexes = convhull(points_x, points_y);
 
 plot(points_x, points_y, '.')
