@@ -7,14 +7,18 @@ start_points = randsample(1:n_points, n_centroids);
 centroids_x = points_x(start_points);
 centroids_y = points_y(start_points);
 
+% TODO: change for-loops to matrix operations
+
 for i = 1:n_iterations
     % Calculate distance to each point
     distances = zeros(n_centroids, n_points);
     
     for centroid_index = 1:n_centroids
         for point_index = 1:n_points
-            % TODO: make this line readable
-            distances(centroid_index, point_index) = sqrt((centroids_x(centroid_index) - points_x(point_index))^2 + (centroids_y(centroid_index) - points_y(point_index))^2);
+            distances(centroid_index, point_index) = sqrt( ...
+                (centroids_x(centroid_index) - points_x(point_index))^2 + ...
+                (centroids_y(centroid_index) - points_y(point_index))^2 ...
+                );
         end
     end
        
