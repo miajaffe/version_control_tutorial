@@ -20,6 +20,7 @@ centroids_x = points_x(start_points);
 centroids_y = points_y(start_points);
 
 for i = 1:max_iter
+    % Calculate distance to each point
     distances = zeros(k, n_points);
     
     for centroid_index = 1:k
@@ -28,7 +29,8 @@ for i = 1:max_iter
             distances(centroid_index, point_index) = sqrt((centroids_x(centroid_index) - points_x(point_index))^2 + (centroids_y(centroid_index) - points_y(point_index))^2);
         end
     end
-    
+       
+    % Assign points to their closest centroid
     centroid_assignment = zeros(n_points, 1);
     
     for point_index = 1:n_points
@@ -37,6 +39,7 @@ for i = 1:max_iter
         centroid_assignment(point_index) = centroid_index;
     end
     
+    % Calculate new centroid positions by averaging assigned points
     total_x = zeros(k, 1);
     total_y = zeros(k, 1);
     
