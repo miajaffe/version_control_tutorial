@@ -23,8 +23,6 @@ for cluster_index = 1:n_clusters
     cluster_points_y{cluster_index} = points_y(points_in_cluster);
 end
 
-convhull_indexes = convhull(points_x, points_y);
-
 cluster_colors = choose_random_colors(n_clusters);
 
 figure(1)
@@ -37,9 +35,10 @@ for cluster_index = 1:n_clusters
     y = cluster_points_y{cluster_index};
     
     plot(x, y, '.', 'markersize', 20, 'color', cluster_colors(cluster_index, :))
+    
+    convhull_indexes = convhull(x, y);
+    
+    plot(x(convhull_indexes), y(convhull_indexes), 'color', cluster_colors(cluster_index, :))
 end
-
-
-plot(points_x(convhull_indexes), points_y(convhull_indexes))
 
 hold off
