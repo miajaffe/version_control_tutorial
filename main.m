@@ -8,5 +8,12 @@ n_points = 100;
 points_x = rand(n_points, 1);
 points_y = rand(n_points, 1);
 
-% just plot for now
+convhull_indexes = convhull(points_x, points_y);
+
 plot(points_x, points_y, '.')
+
+hold on
+
+plot(points_x(convhull_indexes), points_y(convhull_indexes))
+
+hold off
