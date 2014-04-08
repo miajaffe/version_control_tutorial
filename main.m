@@ -2,11 +2,12 @@
 
 n_points = 100;
 
-% TODO: load data from a file
-points_x = rand(n_points, 1);
-points_y = rand(n_points, 1);
+points = xlsread('data.xls');
 
-n_clusters = 5;
+points_x = points(:, 1);
+points_y = points(:, 2);
+
+n_clusters = 10;
 n_iterations = 100;
 
 [~, ~, cluster_assignment] = kmeans(points_x, points_y, n_clusters, n_iterations);
