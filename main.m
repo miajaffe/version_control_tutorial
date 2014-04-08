@@ -13,6 +13,16 @@ n_iterations = 100;
 
 [~, ~, cluster_assignment] = kmeans(points_x, points_y, n_clusters, n_iterations);
 
+cluster_points_x = {};
+cluster_points_y = {};
+
+for cluster_index = 1:n_clusters
+    points_in_cluster = (cluster_index == cluster_assignment);
+    
+    cluster_points_x{cluster_index} = points_x(points_in_cluster);
+    cluster_points_y{cluster_index} = points_y(points_in_cluster);
+end
+
 convhull_indexes = convhull(points_x, points_y);
 
 figure(1)
@@ -20,9 +30,12 @@ clf
 
 hold on
 
-% adapted from http://www.mathworks.com/matlabcentral/newsreader/view_thread/287417
-
-scatter(points_x, points_y, 10, cluster_assignment, 'filled')
+for cluster_index = 1:n_clusters
+    x = cluster_points_x{cluster_index};
+    y = cluster_points_y{cluster_index};
+    
+    plot(x, y)
+end
 
 
 plot(points_x(convhull_indexes), points_y(convhull_indexes))
