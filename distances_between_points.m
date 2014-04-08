@@ -1,4 +1,6 @@
 function distances = distances_between_points(points_x, points_y)
+% Returns distances between points for all combinations of points as a
+% matrix
 
 n_points = length(points_x);
 
