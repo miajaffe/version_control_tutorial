@@ -11,7 +11,7 @@ points_y = rand(n_points, 1);
 % K-means algorithm
 
 k = 3; % number of clusters
-max_iter = 1; % rounds to run algorithm
+max_iter = 10; % rounds to run algorithm
 
 % choose centroids to be actual points
 start_points = randsample(1:n_points, k);
@@ -51,8 +51,6 @@ for i = 1:max_iter
     centroids_y = total_y / n_points;
     
 end
-
-disp(centroid_assignment)
 
 %
 
