@@ -33,11 +33,13 @@ for cluster_index = 1:n_clusters
     x = cluster_points_x{cluster_index};
     y = cluster_points_y{cluster_index};
     
-    plot(x, y, '.', 'markersize', 20, 'color', cluster_colors(cluster_index, :))
-    
     [convhull_x, convhull_y] = convhull_points(x, y);
     
-    plot(convhull_x, convhull_y, 'color', cluster_colors(cluster_index, :))
+    plot(convhull_x, convhull_y, 'k')
+    
+    [visit_order, ~] = find_shortest_path(x, y, -1); % final argument not yet used
+    
+    plot(x(visit_order), y(visit_order), 'color', cluster_colors(cluster_index, :), 'linewidth', 2)
 end
 
 hold off
