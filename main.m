@@ -9,4 +9,4 @@ points_x = rand(n_points, 1);
 points_y = rand(n_points, 1);
 
 % just plot for now
-plot(points_x, points_y)
+plot(points_x, points_y, '.')
