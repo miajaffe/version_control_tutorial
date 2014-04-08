@@ -37,7 +37,18 @@ for i = 1:max_iter
         centroid_assignment(point_index) = centroid_index;
     end
     
+    total_x = zeros(k, 1);
+    total_y = zeros(k, 1);
     
+    for point_index = 1:n_points
+        centroid_index = centroid_assignment(point_index);
+        
+        total_x(centroid_index) = total_x(centroid_index) + points_x(point_index);
+        total_y(centroid_index) = total_y(centroid_index) + points_y(point_index);
+    end
+    
+    centroids_x = total_x / n_points;
+    centroids_y = total_y / n_points;
     
 end
 
