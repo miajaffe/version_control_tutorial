@@ -34,7 +34,7 @@ for i = 1:max_iter
     centroid_assignment = zeros(n_points, 1);
     
     for point_index = 1:n_points
-        [~, centroid_index] = max(distances(:, point_index));
+        [~, centroid_index] = min(distances(:, point_index));
         
         centroid_assignment(point_index) = centroid_index;
     end
