@@ -37,7 +37,7 @@ for cluster_index = 1:n_clusters
     
     plot(convhull_x, convhull_y, 'k')
     
-    [visit_order, ~] = find_shortest_path(x, y, -1); % final argument not yet used
+    [visit_order, ~] = find_shortest_path(x, y, 10000);
     
     plot(x(visit_order), y(visit_order), 'color', cluster_colors(cluster_index, :), 'linewidth', 2)
 end
