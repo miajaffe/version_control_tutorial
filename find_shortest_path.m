@@ -20,6 +20,8 @@ shortest = min(min(distances));
 
 [rows, cols] = find(distances == shortest);
 
+% Here is a new line!
+
 % choose the first point (arbitrary)
 p1 = rows(1);
 p2 = cols(1);
