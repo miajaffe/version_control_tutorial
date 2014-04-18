@@ -10,6 +10,8 @@ n_total_colors = length(color_matrix);
 
 stride = floor(n_total_colors/n_colors);
 
+evan_was_here = 3;
+
 start_index = floor(rand*stride) + 1;
 
 choices = start_index:stride:n_total_colors;
